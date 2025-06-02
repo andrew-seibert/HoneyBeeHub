@@ -2,17 +2,20 @@ import requests
 import json
 import datetime
 import time
+import os
 import tkinter as tk
 from tkinter import *
 from datetime import datetime
+from dotenv import load_dotenv
 
 def convertTime(timeStr):
     dt = datetime.strptime(timeStr, '%Y-%m-%d %H:%M:%S')
     return dt.strftime('%m/%d/%y - %I:%M%p').lstrip('0').replace(' 0', ' ')
 
 def getWeather(city):
-    # Deleted for security, requires openweathermap api key here
-    apiKey = "" 
+    # Requires openweathermap api key here
+    load_dotenv()
+    apiKey = os.getenv("API_KEY")
     outStr = ""
     if city == '':
         city = "Philadelphia"
@@ -39,7 +42,7 @@ def getWeather(city):
             outStr = f"Sorry, could not find current weather data for {city}."
         else:
             outStr = f"Sorry, an error occurred while fetching the current weather data. Please try again later. Error: "
-            outStr = outStr + error
+            outStr = outStr + str(error)
     # Forecast
     try:
         fResponse = requests.get(f'https://api.openweathermap.org/data/2.5/forecast?q={city}&appid={apiKey}&units=imperial')
@@ -69,7 +72,7 @@ def getWeather(city):
             outStr = outStr + f"\nSorry, could not find forecast data for {city}."
         else:
             outStr = outStr + f"\nSorry, an error occurred retrieving forecast data. Error: "
-            outStr = outStr + error
+            outStr = outStr + str(error)
 
     return outStr
 
@@ -86,7 +89,7 @@ def getCategory():
         outStr = outStr[:-1]
     except requests.exceptions.HTTPError as error:
         outStr = "Sorry, an error occured retrieving category. Error: "
-        outStr = outStr + error
+        outStr = outStr + str(error)
     
     return outStr
 
@@ -114,7 +117,7 @@ def getJoke(category):
                    
     except requests.exceptions.HTTPError as error:
         outStr = outStr + "Sorry, an error occured retrieving joke. Error: "
-        outStr = outStr + error
+        outStr = outStr + str(error)
 
     return outStr
 
