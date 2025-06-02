@@ -4,7 +4,8 @@ A weather reporting and joke generation app built in Python. <br>
 
 ## Technology
 Front-end UI is built using TKinter module.\
-Weather generation is built using openweathermap API, primarly focusing on rainfall.   
+Weather generation is built using openweathermap API, primarly focusing on rainfall. <br>
+![image](https://github.com/user-attachments/assets/dc1d95cf-7d9b-419a-968b-1d421f6f19eb) <br>
 Joke generation is built using v2.jokeapi.dev. <br>  
 ![Screenshot 2025-05-21 144606](https://github.com/user-attachments/assets/bc063da3-a60c-467e-aae4-fc837e9755ae)
 
