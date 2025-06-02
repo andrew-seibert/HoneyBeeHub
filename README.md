@@ -13,6 +13,6 @@ Ready to run on Linux, Windows, or MacOS.\
 Initially deployed to replit for mobile functionality.
 
 ### Note
-This repository requires the developer to enter their openweathermap API key using a .env file for security.
-Use pip install python-dotenv to enable the .env file. 
+This repository requires the developer to enter their openweathermap API key using a .env file for security. <br>
+Use pip install python-dotenv to enable the .env file. <br>
 ONLY do this on your local machine OR implement an encryption protocol for key storage.
